@@ -1,0 +1,6 @@
+{
+  "appId": "org.concept.trianonviviani",
+  "appName": "Trianon",
+  "webDir": "docs",
+  "android": { "backgroundColor": "#f6efe2" }
+}

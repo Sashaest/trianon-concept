@@ -1,0 +1,46 @@
+# Build APK Android (Capacitor) — solo manuale per non consumare minuti Actions
+name: Build APK
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: apk
+  cancel-in-progress: true
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+          cache: gradle
+      - run: npm ci --no-audit --no-fund
+      - run: npx cap add android
+      - run: npx @capacitor/assets generate --android --iconBackgroundColor '#7d1421' --splashBackgroundColor '#5a0d17'
+        continue-on-error: true
+      - run: npx cap sync android
+      - name: Gradle assembleDebug
+        working-directory: android
+        run: chmod +x gradlew && ./gradlew assembleDebug --no-daemon -q
+      - run: cp android/app/build/outputs/apk/debug/app-debug.apk trianon-concept.apk
+      - uses: actions/upload-artifact@v4
+        with:
+          name: trianon-concept-apk
+          path: trianon-concept.apk
+          retention-days: 14
+      - name: Pubblica come release (download diretto da telefono)
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: apk-${{ github.run_number }}
+          name: Trianon concept APK #${{ github.run_number }}
+          body: APK debug del concept. Installazione da file: abilitare "Installa app sconosciute".
+          files: trianon-concept.apk
+          make_latest: true

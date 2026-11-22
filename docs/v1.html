@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trianon Viviani — Concept nuovo sito | Stagione 2026|2027</title>
+<meta name="description" content="Concept dimostrativo per il nuovo sito del Teatro Trianon Viviani di Napoli.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rosso:#7d1421; --rosso-2:#5a0d17; --rosso-3:#a31d2e;
+  --oro:#c9a24a; --oro-2:#e6c97a;
+  --carta:#f6efe2; --carta-2:#ece2cf;
+  --inchiostro:#1b1414; --grigio:#6b5f58;
+  --blu:#1d3b6e; --verde:#2f5d50;
+  --r:14px;
+  --serif:"Cormorant Garamond",Georgia,serif;
+  --sans:"Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  --shadow:0 10px 30px rgba(27,20,20,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{font-family:var(--sans);background:var(--carta);color:var(--inchiostro);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+.wrap{max-width:1200px;margin:0 auto;padding:0 22px}
+.skip{position:absolute;left:-999px;top:0;background:var(--oro);padding:10px 16px;z-index:999}
+.skip:focus{left:10px}
+:focus-visible{outline:3px solid var(--oro);outline-offset:3px}
+
+/* majolica pattern */
+.maiolica{background-color:var(--rosso-2);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23c9a24a' stroke-opacity='.22' stroke-width='1.2'%3E%3Cpath d='M40 4 C52 20 60 28 76 40 C60 52 52 60 40 76 C28 60 20 52 4 40 C20 28 28 20 40 4Z'/%3E%3Ccircle cx='40' cy='40' r='9'/%3E%3Ccircle cx='0' cy='0' r='9'/%3E%3Ccircle cx='80' cy='0' r='9'/%3E%3Ccircle cx='0' cy='80' r='9'/%3E%3Ccircle cx='80' cy='80' r='9'/%3E%3C/g%3E%3C/svg%3E")}
+
+/* demo bar */
+.demo{background:var(--inchiostro);color:var(--oro-2);font-size:13px;text-align:center;padding:7px 14px;letter-spacing:.02em}
+.demo b{color:#fff}
+
+/* header */
+header.top{position:sticky;top:0;z-index:50;background:rgba(246,239,226,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(125,20,33,.12)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-mark{width:42px;height:42px;border-radius:50%;background:var(--rosso);display:grid;place-items:center;color:var(--oro-2);font-family:var(--serif);font-weight:700;font-size:22px;box-shadow:inset 0 0 0 2px var(--oro)}
+.logo-txt{font-family:var(--serif);line-height:1}
+.logo-txt strong{display:block;font-size:24px;font-weight:700;color:var(--rosso);letter-spacing:.01em}
+.logo-txt span{font-family:var(--sans);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--grigio)}
+.menu{display:flex;gap:4px;list-style:none}
+.menu a{text-decoration:none;font-size:14.5px;font-weight:500;padding:8px 12px;border-radius:999px;transition:.2s}
+.menu a:hover{background:var(--carta-2);color:var(--rosso)}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.lang{background:none;border:1px solid rgba(27,20,20,.2);border-radius:999px;padding:6px 10px;font-size:12px;font-weight:600}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:11px 20px;font-weight:600;font-size:14.5px;text-decoration:none;transition:.2s}
+.btn-primary{background:var(--rosso);color:#fff}
+.btn-primary:hover{background:var(--rosso-3);transform:translateY(-1px)}
+.btn-oro{background:var(--oro);color:var(--inchiostro)}
+.btn-oro:hover{background:var(--oro-2)}
+.btn-ghost{background:transparent;color:inherit;box-shadow:inset 0 0 0 1.5px currentColor}
+.btn-ghost:hover{background:rgba(255,255,255,.1)}
+.burger{display:none;background:none;border:0;width:42px;height:42px}
+.burger span{display:block;height:2px;background:var(--inchiostro);margin:6px 8px;border-radius:2px}
+@media (max-width:980px){
+  .menu{display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;background:var(--carta);padding:14px 22px 22px;border-bottom:1px solid var(--carta-2);box-shadow:var(--shadow)}
+  .menu.open{display:flex}
+  .menu a{display:block;font-size:17px;padding:12px}
+  .burger{display:block}
+  .nav-actions .btn{display:none}
+}
+body{overflow-x:hidden}
+@media (max-width:560px){
+  .logo-txt span{display:none}
+  .logo-txt strong{font-size:21px;white-space:nowrap}
+  .my-lbl{display:none}
+  .eyebrow{letter-spacing:.16em}
+  .demo{font-size:11.5px}
+  section{padding:64px 0}
+}
+
+/* hero */
+.hero{position:relative;color:var(--carta);overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 75% 30%,rgba(201,162,74,.28),transparent 55%),linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.35))}
+.hero-in{position:relative;z-index:1;display:grid;grid-template-columns:1.25fr .9fr;gap:40px;padding:90px 22px 80px;align-items:center}
+.eyebrow{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--oro-2);font-weight:600}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(46px,7vw,96px);line-height:.95;margin:16px 0 18px}
+.hero h1 em{color:var(--oro-2);font-style:italic}
+.hero p.lead{font-size:18px;max-width:540px;opacity:.9}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.next-card{background:rgba(246,239,226,.08);border:1px solid rgba(230,201,122,.35);border-radius:22px;padding:26px;backdrop-filter:blur(6px)}
+.next-card .tag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--oro-2)}
+.next-card h3{font-family:var(--serif);font-size:34px;line-height:1.05;margin:10px 0 4px}
+.next-card .who{opacity:.85}
+.count{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:20px 0}
+.count div{background:rgba(0,0,0,.25);border-radius:12px;padding:10px 4px;text-align:center}
+.count b{display:block;font-family:var(--serif);font-size:32px;line-height:1;color:var(--oro-2)}
+.count small{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+.sipario{position:absolute;top:0;bottom:0;width:clamp(0px,calc((100vw - 1250px)/2),110px);z-index:2;background:linear-gradient(90deg,#3d0910,#7d1421 40%,#4a0b13 60%,#7d1421 80%,#3d0910);opacity:.95}
+.sipario.l{left:0;border-right:2px solid var(--oro)} .sipario.r{right:0;border-left:2px solid var(--oro)}
+@media (max-width:980px){.hero-in{grid-template-columns:1fr;padding:60px 22px}.sipario{display:none}}
+
+/* strip */
+.strip{background:var(--oro);color:var(--inchiostro);overflow:hidden;white-space:nowrap;font-family:var(--serif);font-size:22px;font-style:italic;padding:10px 0}
+.strip-in{display:inline-block;animation:scroll 40s linear infinite}
+.strip span{margin:0 28px}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* sections */
+section{padding:90px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:34px}
+.sec-head h2{font-family:var(--serif);font-weight:600;font-size:clamp(38px,5vw,58px);line-height:1;color:var(--rosso)}
+.sec-head p{color:var(--grigio);max-width:520px}
+.new-badge{display:inline-block;font-family:var(--sans);font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--oro);color:var(--inchiostro);border-radius:999px;padding:4px 10px;vertical-align:middle;margin-left:10px;transform:translateY(-6px)}
+
+/* filters */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.chip{border:1.5px solid rgba(27,20,20,.18);background:transparent;border-radius:999px;padding:8px 16px;font-size:14px;font-weight:500;transition:.2s}
+.chip:hover{border-color:var(--rosso)}
+.chip[aria-pressed="true"]{background:var(--inchiostro);color:var(--carta);border-color:var(--inchiostro)}
+.toggle-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.search{border:1.5px solid rgba(27,20,20,.18);background:#fff;border-radius:999px;padding:9px 16px;font-size:14px;min-width:240px}
+
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:22px}
+.card{background:#fff;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:.25s;cursor:pointer;position:relative}
+.card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(27,20,20,.18)}
+.poster{aspect-ratio:4/3.2;position:relative;padding:18px;display:flex;flex-direction:column;justify-content:space-between;color:#fff;overflow:hidden}
+.poster::before{content:"";position:absolute;inset:0;opacity:.35;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 2 C39 15 45 21 58 30 C45 39 39 45 30 58 C21 45 15 39 2 30 C15 21 21 15 30 2Z' fill='none' stroke='%23fff' stroke-opacity='.35'/%3E%3C/svg%3E")}
+.poster > *{position:relative}
+.poster .ptitle{font-family:var(--serif);font-size:30px;line-height:1;font-weight:600;text-shadow:0 2px 12px rgba(0,0,0,.25)}
+.poster .pgen{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;background:rgba(0,0,0,.28);border-radius:999px;padding:4px 10px;align-self:flex-start}
+.g-prosa{background:linear-gradient(135deg,#7d1421,#3d0910)}
+.g-concerto{background:linear-gradient(135deg,#1d3b6e,#0d1d3a)}
+.g-musica{background:linear-gradient(135deg,#2f5d50,#14302a)}
+.g-danza{background:linear-gradient(135deg,#8a4b9a,#3c1d47)}
+.g-musicale{background:linear-gradient(135deg,#b5772a,#5a3410)}
+.card-body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card-body .date{font-size:13px;font-weight:600;color:var(--rosso);letter-spacing:.02em}
+.card-body h3{font-family:var(--serif);font-size:23px;line-height:1.1}
+.card-body .who{font-size:14px;color:var(--grigio)}
+.card-foot{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:12px}
+.fav{background:rgba(255,255,255,.9);border:0;width:38px;height:38px;border-radius:50%;position:absolute;top:12px;right:12px;z-index:2;display:grid;place-items:center;font-size:18px;transition:.2s}
+.fav[aria-pressed="true"]{background:var(--oro)}
+.past{filter:grayscale(.8);opacity:.7}
+.empty{grid-column:1/-1;text-align:center;padding:50px;color:var(--grigio)}
+
+/* calendar */
+.cal-wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:28px}
+.cal{background:#fff;border-radius:var(--r);padding:22px;box-shadow:var(--shadow)}
+.cal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.cal-head h3{font-family:var(--serif);font-size:30px;text-transform:capitalize}
+.cal-head button{background:var(--carta);border:0;width:40px;height:40px;border-radius:50%;font-size:18px}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.cal-grid .dow{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--grigio);text-align:center;padding-bottom:6px}
+.day{aspect-ratio:1;border-radius:10px;border:0;background:var(--carta);position:relative;font-weight:500;font-size:15px}
+.day.blank{background:transparent;pointer-events:none}
+.day.has{background:var(--rosso);color:#fff;font-weight:700}
+.day.has:hover{background:var(--rosso-3)}
+.day.today{box-shadow:inset 0 0 0 2px var(--oro)}
+.day.sel{background:var(--oro)!important;color:var(--inchiostro)!important}
+.day .dots{position:absolute;bottom:6px;left:50%;transform:translateX(-50%);display:flex;gap:3px}
+.day .dots i{width:5px;height:5px;border-radius:50%;background:var(--oro-2)}
+.day-list{background:var(--rosso-2);color:var(--carta);border-radius:var(--r);padding:26px;min-height:100%}
+.day-list h4{font-family:var(--serif);font-size:28px;margin-bottom:14px;color:var(--oro-2);text-transform:capitalize}
+.day-item{border-top:1px solid rgba(230,201,122,.25);padding:14px 0;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.day-item b{font-family:var(--serif);font-size:21px;display:block;line-height:1.1}
+.day-item small{opacity:.8}
+@media (max-width:860px){.cal-wrap{grid-template-columns:1fr}}
+
+/* experiences */
+.exp{background:var(--carta-2)}
+.exp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+.exp-card{background:#fff;border-radius:var(--r);padding:26px;display:flex;flex-direction:column;gap:10px;border-top:5px solid var(--rosso)}
+.exp-card .ico{font-size:30px}
+.exp-card h3{font-family:var(--serif);font-size:26px;line-height:1.05}
+.exp-card p{font-size:14.5px;color:var(--grigio)}
+.exp-card .meta{font-size:13px;font-weight:600;color:var(--rosso)}
+.posti{height:6px;background:var(--carta-2);border-radius:99px;overflow:hidden;margin-top:4px}
+.posti i{display:block;height:100%;background:var(--oro)}
+.exp-card .btn{margin-top:auto;align-self:flex-start}
+
+/* students / abbonamenti */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.promo{border-radius:22px;padding:40px;color:var(--carta);position:relative;overflow:hidden}
+.promo h3{font-family:var(--serif);font-size:44px;line-height:1;margin:10px 0}
+.promo .big{font-family:var(--serif);font-size:110px;line-height:.9;color:var(--oro-2);font-weight:700}
+.promo.blu{background:linear-gradient(135deg,var(--blu),#0d1d3a)}
+.abb-list{display:grid;gap:12px;margin-top:18px}
+.abb{background:rgba(255,255,255,.08);border:1px solid rgba(230,201,122,.3);border-radius:12px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.abb b{font-family:var(--serif);font-size:22px}
+@media (max-width:860px){.duo{grid-template-columns:1fr}}
+
+/* news */
+.news-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:22px}
+.news{background:#fff;border-radius:var(--r);padding:24px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px;cursor:pointer;transition:.2s}
+.news:hover{transform:translateY(-3px)}
+.news.feat{grid-row:span 2;background:var(--rosso);color:var(--carta)}
+.news.feat h3{font-size:38px}
+.news .cat{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--rosso)}
+.news.feat .cat{color:var(--oro-2)}
+.news h3{font-family:var(--serif);font-size:24px;line-height:1.1}
+.news p{font-size:14.5px;opacity:.8}
+.bandi{margin-top:30px;background:#fff;border-radius:var(--r);padding:20px 24px;border-left:5px solid var(--grigio)}
+.bandi h4{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--grigio);margin-bottom:8px}
+.bandi li{list-style:none;padding:10px 0;border-top:1px solid var(--carta-2);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:14.5px}
+.bandi li span{color:var(--rosso);font-weight:600;white-space:nowrap}
+@media (max-width:900px){.news-grid{grid-template-columns:1fr}.news.feat{grid-row:auto}}
+
+/* memoria / timeline */
+.memoria{color:var(--carta)}
+.timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:30px;position:relative}
+.timeline::before{content:"";position:absolute;top:26px;left:0;right:0;height:2px;background:var(--oro)}
+.tl{padding:0 14px;position:relative}
+.tl::before{content:"";display:block;width:18px;height:18px;border-radius:50%;background:var(--oro);border:4px solid var(--rosso-2);margin:17px 0 18px}
+.tl b{font-family:var(--serif);font-size:44px;color:var(--oro-2);line-height:1;display:block}
+.tl p{font-size:14.5px;opacity:.9;margin-top:6px}
+@media (max-width:860px){.timeline{grid-template-columns:1fr}.timeline::before{display:none}.tl{border-left:2px solid var(--oro);padding-bottom:20px}.tl::before{margin-left:-24px}}
+.torre{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-top:80px}
+.torre svg{width:100%;max-width:380px;justify-self:center}
+.torre h3{font-family:var(--serif);font-size:48px;line-height:1;color:var(--oro-2);margin:10px 0 14px}
+@media (max-width:860px){.torre{grid-template-columns:1fr}}
+
+/* app */
+.app-sec{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.phone{width:290px;height:590px;border-radius:44px;background:var(--inchiostro);padding:12px;justify-self:center;box-shadow:0 30px 60px rgba(0,0,0,.3)}
+.screen{background:var(--carta);border-radius:34px;height:100%;overflow:hidden;display:flex;flex-direction:column}
+.s-top{background:var(--rosso);color:var(--carta);padding:34px 20px 20px}
+.s-top small{color:var(--oro-2);letter-spacing:.18em;text-transform:uppercase;font-size:10px}
+.s-top b{font-family:var(--serif);font-size:26px;display:block;line-height:1.05;margin-top:4px}
+.ticket{margin:18px;background:#fff;border-radius:18px;padding:16px;box-shadow:var(--shadow);text-align:center}
+.ticket .qr{width:130px;height:130px;margin:10px auto;background:
+ conic-gradient(from 90deg at 20% 20%,#000 25%,#fff 0) 0 0/26px 26px;border:6px solid #fff;outline:2px solid #000;image-rendering:pixelated}
+.ticket small{color:var(--grigio);font-size:11px}
+.s-row{margin:0 18px;display:flex;gap:8px}
+.s-row div{flex:1;background:#fff;border-radius:12px;padding:10px;font-size:11px;text-align:center}
+.feat-list{list-style:none;display:grid;gap:14px;margin:22px 0 28px}
+.feat-list li{display:flex;gap:14px;align-items:flex-start}
+.feat-list li i{font-style:normal;font-size:22px;width:44px;height:44px;flex:none;display:grid;place-items:center;background:#fff;border-radius:12px;box-shadow:var(--shadow)}
+@media (max-width:860px){.app-sec{grid-template-columns:1fr}}
+
+/* newsletter */
+.nl{background:var(--inchiostro);color:var(--carta)}
+.nl-box{display:grid;grid-template-columns:1fr 1.1fr;gap:50px;align-items:center}
+.nl h2{font-family:var(--serif);font-size:clamp(40px,5vw,62px);line-height:1;color:var(--oro-2)}
+form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.field label{font-size:13px;font-weight:600}
+.field input,.field select,.field textarea{border:1.5px solid rgba(246,239,226,.25);background:rgba(255,255,255,.06);color:inherit;border-radius:10px;padding:12px 14px;font:inherit;font-size:15px}
+.light .field input,.light .field select,.light .field textarea{border-color:rgba(27,20,20,.2);background:#fff;color:var(--inchiostro)}
+.field input[aria-invalid="true"]{border-color:#ff6b6b}
+.err{color:#ff8b8b;font-size:12.5px;min-height:16px}
+.light .err{color:#b3261e}
+.interests{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 14px}
+.interests label{display:flex;align-items:center;gap:7px;border:1.5px solid rgba(246,239,226,.25);border-radius:999px;padding:7px 14px;font-size:14px;cursor:pointer}
+.interests input{accent-color:var(--oro)}
+.consent{display:flex;gap:10px;font-size:13px;opacity:.85;margin:8px 0 16px;align-items:flex-start}
+.consent input{margin-top:4px;accent-color:var(--oro)}
+@media (max-width:860px){.nl-box{grid-template-columns:1fr}form .row{grid-template-columns:1fr}}
+
+/* visit */
+.visit{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px}
+.visit > div{background:#fff;border-radius:var(--r);padding:26px;box-shadow:var(--shadow)}
+.visit h3{font-family:var(--serif);font-size:26px;color:var(--rosso);margin-bottom:8px}
+.visit p,.visit li{font-size:15px}
+.visit ul{list-style:none;display:grid;gap:6px}
+@media (max-width:860px){.visit{grid-template-columns:1fr}}
+
+/* footer */
+footer{background:var(--rosso-2);color:var(--carta);padding:60px 0 30px;font-size:14px}
+.foot{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:30px}
+footer h5{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--oro-2);margin-bottom:12px}
+footer ul{list-style:none;display:grid;gap:7px}
+footer a{text-decoration:none;opacity:.85}
+footer a:hover{opacity:1;color:var(--oro-2)}
+.foot-bottom{border-top:1px solid rgba(230,201,122,.25);margin-top:40px;padding-top:20px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;opacity:.75;font-size:12.5px}
+@media (max-width:860px){.foot{grid-template-columns:1fr 1fr}}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(27,20,20,.6);backdrop-filter:blur(4px)}
+.modal.open{display:flex}
+.dialog{background:var(--carta);border-radius:22px;max-width:720px;width:100%;max-height:92vh;overflow:auto;position:relative;animation:pop .25s ease}
+@keyframes pop{from{transform:scale(.96);opacity:0}}
+.dialog .poster{aspect-ratio:auto;min-height:200px}
+.dialog .poster .ptitle{font-size:44px}
+.d-body{padding:26px}
+.x{position:absolute;top:14px;right:14px;z-index:3;width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.9);font-size:20px}
+.dates{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.dates button{border:1.5px solid rgba(27,20,20,.2);background:#fff;border-radius:12px;padding:10px 14px;font-size:14px;text-align:left;line-height:1.2}
+.dates button[aria-pressed="true"]{border-color:var(--rosso);background:var(--rosso);color:#fff}
+.dates button:disabled{opacity:.4;cursor:not-allowed}
+.qty{display:flex;align-items:center;gap:12px}
+.qty button{width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(27,20,20,.2);background:#fff;font-size:18px}
+.d-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.btn-line{background:#fff;color:var(--inchiostro);box-shadow:inset 0 0 0 1.5px rgba(27,20,20,.2)}
+.btn-line:hover{box-shadow:inset 0 0 0 1.5px var(--rosso);color:var(--rosso)}
+.note{font-size:12.5px;color:var(--grigio);margin-top:14px}
+.check{display:flex;gap:8px;align-items:center;font-size:14px;margin-top:12px}
+
+/* toast */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120px);background:var(--inchiostro);color:var(--carta);padding:14px 22px;border-radius:999px;font-size:14.5px;z-index:200;transition:.3s;box-shadow:var(--shadow);max-width:90vw;text-align:center}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.success{text-align:center;padding:20px}
+.success .ok{font-size:54px}
+
+/* my trianon drawer */
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(400px,92vw);background:var(--carta);z-index:120;transform:translateX(100%);transition:.3s;box-shadow:-10px 0 40px rgba(0,0,0,.2);display:flex;flex-direction:column}
+.drawer.open{transform:none}
+.drawer header{padding:24px;background:var(--rosso);color:var(--carta)}
+.drawer header h3{font-family:var(--serif);font-size:30px}
+.drawer .list{padding:18px 24px;overflow:auto;flex:1;display:grid;gap:10px;align-content:start}
+.mini{background:#fff;border-radius:12px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.mini b{font-family:var(--serif);font-size:19px;display:block;line-height:1.1}
+.mini small{color:var(--grigio)}
+.fav-count{background:var(--oro);color:var(--inchiostro);border-radius:999px;font-size:11px;font-weight:700;padding:1px 7px;margin-left:4px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Vai al contenuto</a>
+<div class="demo"><b>Concept dimostrativo</b> — proposta di nuovo sito per il Teatro Trianon Viviani · non è il sito ufficiale · prenotazioni e iscrizioni simulate</div>
+
+<header class="top">
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="Trianon Viviani, torna all'inizio">
+      <div class="logo-mark" aria-hidden="true">T</div>
+      <div class="logo-txt"><strong>Trianon Viviani</strong><span>Teatro della canzone napoletana</span></div>
+    </a>
+    <ul class="menu" id="menu">
+      <li><a href="#stagione">Stagione</a></li>
+      <li><a href="#calendario">Calendario</a></li>
+      <li><a href="#esperienze">Esperienze</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#memoria">Il Teatro</a></li>
+      <li><a href="#visita">Visita</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="lang" id="myBtn" aria-label="Apri Il mio Trianon">♥<span class="my-lbl"> Il mio Trianon</span><span class="fav-count" id="favCount">0</span></button>
+      <a class="btn btn-primary" href="#stagione">Biglietti</a>
+      <button class="burger" id="burger" aria-label="Apri menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<!-- HERO -->
+<div class="hero maiolica" id="top">
+  <div class="sipario l" aria-hidden="true"></div><div class="sipario r" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <div>
+      <div class="eyebrow">Stagione 2026 | 2027 · Forcella, Napoli</div>
+      <h1>Curre curre<br><em>guaglio'</em></h1>
+      <p class="lead">Dal 1911 nel cuore di Forcella. Prosa, musica, danza e la grande canzone napoletana: la tradizione che si fa contemporanea, sera dopo sera.</p>
+      <div class="hero-cta">
+        <a class="btn btn-oro" href="#stagione">Scopri la stagione</a>
+        <a class="btn btn-ghost" href="#newsletter">Resta aggiornato</a>
+      </div>
+    </div>
+    <div class="next-card" id="nextCard" aria-live="polite"></div>
+  </div>
+</div>
+
+<div class="strip" aria-hidden="true"><div class="strip-in" id="strip"></div></div>
+
+<!-- STAGIONE -->
+<section id="stagione">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>In scena</h2>
+      <p>Tutta la programmazione in un colpo d'occhio. Filtra per genere, cerca un artista, salva i tuoi preferiti.</p>
+    </div>
+    <div class="toggle-row">
+      <div class="filters" id="filters" role="group" aria-label="Filtra per genere"></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px">
+        <input class="search" id="search" type="search" placeholder="Cerca spettacolo o artista…" aria-label="Cerca">
+        <button class="chip" id="pastToggle" aria-pressed="false">Mostra passati</button>
+      </div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<!-- CALENDARIO -->
+<section id="calendario" style="background:#fff8ec;padding-top:80px">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Calendario</h2>
+      <p>Scegli una sera. Ogni data evidenziata è uno spettacolo: un tocco e sei già in platea.</p>
+    </div>
+    <div class="cal-wrap">
+      <div class="cal">
+        <div class="cal-head">
+          <button id="prevM" aria-label="Mese precedente">‹</button>
+          <h3 id="calTitle"></h3>
+          <button id="nextM" aria-label="Mese successivo">›</button>
+        </div>
+        <div class="cal-grid" id="calGrid"></div>
+      </div>
+      <div class="day-list" id="dayList" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ESPERIENZE -->
+<section id="esperienze" class="exp">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Esperienze <span class="new-badge">Nuova sezione</span></h2>
+      <p>Il teatro non finisce col sipario. Visite, prove aperte, incontri e laboratori: iscriviti in un minuto, ricevi conferma via email.</p>
+    </div>
+    <div class="exp-grid" id="expGrid"></div>
+  </div>
+</section>
+
+<!-- STUDENTI + ABBONAMENTI -->
+<section>
+  <div class="wrap duo">
+    <div class="promo maiolica">
+      <div class="eyebrow">Under 30 e formazione</div>
+      <div class="big">5€</div>
+      <h3>Il biglietto per chi studia</h3>
+      <p>Per studenti universitari, allievi delle scuole di teatro, musica, danza e dell'Accademia di Belle Arti.</p>
+      <div class="hero-cta"><button class="btn btn-oro" data-open-exp="studenti">Verifica e acquista</button></div>
+    </div>
+    <div class="promo blu">
+      <div class="eyebrow">Abbonamenti</div>
+      <h3>Una stagione, il tuo posto</h3>
+      <p>Formule pensate per chi torna. Prezzi e turni a cura del botteghino.</p>
+      <div class="abb-list">
+        <div class="abb"><div><b>Stagione intera</b><br><small>Tutti gli spettacoli di prosa</small></div><button class="btn btn-oro" data-abb="Stagione intera">Scegli</button></div>
+        <div class="abb"><div><b>Carnet libero</b><br><small>Scegli tu titoli e date</small></div><button class="btn btn-oro" data-abb="Carnet libero">Scegli</button></div>
+        <div class="abb"><div><b>Musica & concerti</b><br><small>Per chi vive di canzone</small></div><button class="btn btn-oro" data-abb="Musica & concerti">Scegli</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section id="news" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>News</h2>
+      <div class="filters" id="newsFilters" role="group" aria-label="Filtra news" style="margin:0"></div>
+    </div>
+    <div class="news-grid" id="newsGrid"></div>
+    <div class="bandi">
+      <h4>Bandi e avvisi pubblici · area separata dalla programmazione</h4>
+      <ul>
+        <li>Avviso pubblico per una figura professionale per comunicazione integrata e media relations <span>Scadenza 27 nov 2026 · via PEC</span></li>
+        <li>Avviso pubblico per la selezione del componente unico dell'Organismo di Vigilanza <span>Scadenza 21 dic 2026 · ore 12:00</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- MEMORIA -->
+<section id="memoria" class="maiolica memoria">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 style="color:var(--oro-2)">La stanza della memoria</h2>
+      <p style="color:var(--carta);opacity:.85">Più di un secolo di storia nel centro antico, patrimonio Unesco.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl"><b>1911</b><p>L'8 novembre il sipario si apre con <em>Miseria e Nobiltà</em> di Eduardo Scarpetta.</p></div>
+      <div class="tl"><b>Cinema</b><p>Gli anni della sala cinematografica, poi la chiusura e il lungo restauro.</p></div>
+      <div class="tl"><b>2002</b><p>Il 7 dicembre il teatro riapre, restituito alla città.</p></div>
+      <div class="tl"><b>2006</b><p>Viene intitolato a Raffaele Viviani, gigante della scena napoletana.</p></div>
+      <div class="tl"><b>2026</b><p>Nuova stagione, nuova direzione artistica di Pierpaolo Sepe.</p></div>
+    </div>
+    <div class="torre">
+      <svg viewBox="0 0 300 320" role="img" aria-label="Illustrazione stilizzata della Torre della Sirena">
+        <defs><linearGradient id="tg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#e6c97a"/><stop offset="1" stop-color="#8f6d2a"/></linearGradient></defs>
+        <circle cx="150" cy="140" r="120" fill="#c9a24a" opacity=".12"/>
+        <rect x="95" y="80" width="110" height="220" rx="6" fill="url(#tg)"/>
+        <g fill="#5a0d17" opacity=".55">
+          <rect x="95" y="110" width="110" height="3"/><rect x="95" y="150" width="110" height="3"/><rect x="95" y="190" width="110" height="3"/><rect x="95" y="230" width="110" height="3"/><rect x="95" y="270" width="110" height="3"/>
+          <rect x="140" y="125" width="20" height="25" rx="10"/>
+        </g>
+        <g fill="url(#tg)"><rect x="88" y="62" width="22" height="24"/><rect x="122" y="62" width="22" height="24"/><rect x="156" y="62" width="22" height="24"/><rect x="190" y="62" width="22" height="24"/></g>
+        <path d="M150 26 c18 10 26 4 34 -6 c-4 18 -20 26 -34 22 c-14 4 -30 -4 -34 -22 c8 10 16 16 34 6z" fill="#e6c97a"/>
+        <rect x="40" y="300" width="220" height="6" rx="3" fill="#e6c97a"/>
+      </svg>
+      <div>
+        <div class="eyebrow">Dentro il teatro</div>
+        <h3>La Torre della Sirena</h3>
+        <p>L'unica torre di guardia ancora esistente della Neapolis greco-romana vive dentro le mura del Trianon. Il suo nome richiama Parthenope, il mito che fonda la città.</p>
+        <div class="hero-cta"><button class="btn btn-oro" data-open-exp="torre">Prenota una visita</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APP -->
+<section id="app">
+  <div class="wrap app-sec">
+    <div class="phone" aria-hidden="true">
+      <div class="screen">
+        <div class="s-top"><small>Il tuo biglietto</small><b>La Cantata<br>dei Pastori</b></div>
+        <div class="ticket"><small>Sab 19 dicembre · Platea · Fila F · 12</small><div class="qr"></div><small>Mostra il QR all'ingresso</small></div>
+        <div class="s-row"><div>🔔<br>Promemoria</div><div>🗺️<br>Come arrivare</div><div>🎧<br>Audioguida</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="eyebrow" style="color:var(--rosso)">Prossimo passo · App iOS e Android</div>
+      <h2 style="font-family:var(--serif);font-size:clamp(38px,5vw,58px);line-height:1;color:var(--rosso);margin:10px 0">Il Trianon in tasca</h2>
+      <ul class="feat-list">
+        <li><i>🎟️</i><div><b>Biglietti nel wallet</b><br>QR all'ingresso, niente stampe e niente code.</div></li>
+        <li><i>🔔</i><div><b>Notifiche intelligenti</b><br>Nuovi spettacoli dei tuoi artisti, ultimi posti, promemoria la sera dello spettacolo.</div></li>
+        <li><i>🎧</i><div><b>Audioguida della Torre</b><br>La storia di Neapolis raccontata durante la visita.</div></li>
+        <li><i>🎁</i><div><b>Abbonamento digitale e fedeltà</b><br>Turni, cambi data e vantaggi per chi torna.</div></li>
+      </ul>
+      <button class="btn btn-primary" id="appBtn">Avvisami al lancio</button>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section id="newsletter" class="nl">
+  <div class="wrap nl-box">
+    <div>
+      <div class="eyebrow">Mailing list</div>
+      <h2>'A lettera d''o Trianon</h2>
+      <p style="margin-top:14px;opacity:.85">Una volta al mese: anteprime, prevendite riservate, inviti alle prove aperte. Scegli cosa ti interessa e ti scriviamo solo di quello.</p>
+    </div>
+    <form id="nlForm" novalidate>
+      <div class="row">
+        <div class="field"><label for="nlName">Nome</label><input id="nlName" autocomplete="given-name"><div class="err"></div></div>
+        <div class="field"><label for="nlMail">Email *</label><input id="nlMail" type="email" autocomplete="email" required><div class="err"></div></div>
+      </div>
+      <div class="field" style="margin-bottom:0"><label>I tuoi interessi</label></div>
+      <div class="interests">
+        <label><input type="checkbox" value="prosa" checked> Prosa</label>
+        <label><input type="checkbox" value="musica" checked> Canzone e concerti</label>
+        <label><input type="checkbox" value="danza"> Danza</label>
+        <label><input type="checkbox" value="famiglie"> Famiglie</label>
+        <label><input type="checkbox" value="esperienze"> Visite e laboratori</label>
+      </div>
+      <label class="consent"><input type="checkbox" id="nlConsent"> <span>Ho letto l'informativa privacy e acconsento all'invio della newsletter. Posso cancellarmi in qualsiasi momento.</span></label>
+      <div class="err" id="nlConsentErr"></div>
+      <button class="btn btn-oro" type="submit">Iscrivimi</button>
+    </form>
+  </div>
+</section>
+
+<!-- VISITA -->
+<section id="visita">
+  <div class="wrap">
+    <div class="sec-head"><h2>Vieni a teatro</h2></div>
+    <div class="visit">
+      <div><h3>Dove siamo</h3><p>Piazza Vincenzo Calenda, 9<br>80139 Napoli · Forcella</p><p style="margin-top:12px"><a class="btn btn-line" href="https://maps.google.com/?q=Teatro+Trianon+Viviani+Napoli" target="_blank" rel="noopener">Apri in Maps</a></p></div>
+      <div><h3>Contatti</h3><ul><li>📞 <a href="tel:+390810128663">+39 081 0128663</a> (anche WhatsApp)</li><li>📞 <a href="tel:+390810124472">+39 081 0124472</a></li><li>✉️ <a href="mailto:trianon@teatrotrianon.org">trianon@teatrotrianon.org</a></li><li>PEC trianon@pec.teatrotrianon.org</li></ul></div>
+      <div><h3>Prima di venire</h3><ul><li>♿ Accessibilità e posti riservati</li><li>🚇 Metro: Garibaldi, Duomo</li><li>🅿️ Parcheggi convenzionati</li><li>🍷 Foyer e bar</li></ul></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><div class="logo-txt"><strong style="color:var(--oro-2)">Trianon Viviani</strong></div><p style="margin-top:10px;opacity:.8">Fondazione Trianon Viviani. Il teatro della canzone napoletana, tra tradizione e contemporaneità.</p></div>
+      <div><h5>Teatro</h5><ul><li><a href="#memoria">Storia</a></li><li><a href="#memoria">Torre della Sirena</a></li><li><a href="#">Scheda tecnica</a></li><li><a href="#">Fitto sala ed eventi</a></li></ul></div>
+      <div><h5>Pubblico</h5><ul><li><a href="#stagione">Biglietti</a></li><li><a href="#">Abbonamenti</a></li><li><a href="#esperienze">Esperienze</a></li><li><a href="#newsletter">Newsletter</a></li></ul></div>
+      <div><h5>Fondazione</h5><ul><li><a href="#">Amministrazione trasparente</a></li><li><a href="#news">Bandi e avvisi</a></li><li><a href="#">Ufficio stampa</a></li><li><a href="#">Dichiarazione di accessibilità</a></li></ul></div>
+    </div>
+    <div class="foot-bottom"><span>Concept di design non ufficiale · dati stagione da teatrotrianon.org</span><span>Privacy · Cookie · Note legali</span></div>
+  </div>
+</footer>
+
+<!-- MODALS -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle"><div class="dialog" id="dialog"></div></div>
+<aside class="drawer" id="drawer" aria-label="Il mio Trianon">
+  <header><button class="x" id="drawerX" aria-label="Chiudi" style="background:rgba(255,255,255,.15);color:#fff">×</button><div class="eyebrow">Area personale</div><h3>Il mio Trianon</h3></header>
+  <div class="list" id="favList"></div>
+</aside>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function(){
+"use strict";
+// ---------- DATI (stagione 2026|2027, fonte teatrotrianon.org) ----------
+const GEN = {prosa:["Prosa","g-prosa"],concerto:["Concerto","g-concerto"],musica:["Musica","g-musica"],danza:["Danza","g-danza"],musicale:["Teatro musicale","g-musicale"]};
+const SHOWS = [
+ {id:"venere",t:"Venere vs Adone",w:"Enzo Cosimi",g:"danza",d:["2026-11-01"]},
+ {id:"camorra",t:"'A camorra song",w:"'A 67 e Cristina Donadio",g:"musica",d:["2026-11-06"]},
+ {id:"tempesta",t:"Il figlio della tempesta",w:"Armando Punzo e Andrea Salvadori",g:"musica",d:["2026-11-07","2026-11-08"]},
+ {id:"ruvia",t:"Le fiabe di donna Ruvia",w:"Dadà",g:"musicale",d:["2026-11-14","2026-11-15"]},
+ {id:"guagliunera",t:"Guagliunera",w:"Rassegna della Musica Campana · a cura di Polo",g:"musica",d:["2026-11-18"]},
+ {id:"pinocchio",t:"Pinocchio. Che cos'è una persona?",w:"Davide Iodice · Scuola Elementare del Teatro",g:"prosa",d:["2026-11-21","2026-11-22"]},
+ {id:"granatino",t:"'80, '90 e Mo'",w:"Ivan Granatino · Favola di un'amicizia",g:"prosa",d:["2026-11-25","2026-11-26"]},
+ {id:"weekend",t:"Week-end",w:"Sabrina Scuccimarra",g:"prosa",d:["2026-11-28","2026-11-29"]},
+ {id:"ricciardi",t:"Franco Ricciardi in concerto",w:"Franco Ricciardi",g:"concerto",d:["2026-12-02"]},
+ {id:"napucalisse",t:"Napucalisse",w:"Mimmo Borrelli",g:"prosa",d:["2026-12-05","2026-12-06"]},
+ {id:"cupiello",t:"Natale in casa Cupiello",w:"Luca Saccoia · spettacolo per attore cum figuris",g:"prosa",d:["2026-12-09","2026-12-10","2026-12-11","2026-12-12","2026-12-13"]},
+ {id:"truppi",t:"Solo piano",w:"Giovanni Truppi",g:"concerto",d:["2026-12-16"]},
+ {id:"cantata",t:"La Cantata dei Pastori",w:"Peppe Barra",g:"musicale",d:["2026-12-19","2026-12-20","2026-12-26","2026-12-27","2026-12-29","2026-12-30"]},
+ {id:"nummere",t:"Nummere. Scostumatissima Tombola",w:"Gino Curcione",g:"prosa",d:["2026-12-22","2026-12-23"]},
+ {id:"scarlatti",t:"Concerto di Capodanno",w:"Nuova Orchestra Scarlatti",g:"concerto",d:["2027-01-01"]}
+];
+const HOUR = "21:00"; // orario indicativo per la demo
+const EXP = [
+ {id:"torre",ico:"🏛️",t:"Visita alla Torre della Sirena",p:"Un percorso guidato tra le mura di Neapolis custodite dentro il teatro.",m:"Sabato mattina · 45 min · gratuita",tot:25,left:9},
+ {id:"prove",ico:"🎭",t:"Prove aperte",p:"Entra in sala mentre lo spettacolo prende forma. Posti limitati, riservati agli iscritti.",m:"Date comunicate via newsletter",tot:60,left:22},
+ {id:"incontro",ico:"🎙️",t:"Dopo il sipario",p:"Incontro con artisti e compagnie al termine della replica domenicale.",m:"Domenica · ingresso col biglietto",tot:120,left:64},
+ {id:"lab",ico:"🎶",t:"Laboratorio di canzone napoletana",p:"Per ragazzi e famiglie: storia, ritmo e voce della canzone che ha fatto il giro del mondo.",m:"Ciclo di 4 incontri",tot:20,left:6},
+ {id:"pulcinella",ico:"🎪",t:"Audizioni · Pulcinella",p:"Per \"Pulcinella, ovvero una cosa che somiglia al mondo\" di Noemi Francesca, in scena dal 14 al 23 maggio 2027.",m:"Oltre 500 candidature ricevute",tot:500,left:0}
+];
+const NEWS = [
+ {c:"Produzioni",t:"Oltre 500 candidature per le audizioni di \"Pulcinella\"",p:"La nuova produzione scritta e diretta da Noemi Francesca debutta a maggio 2027."},
+ {c:"Stagione",t:"«Curre curre guaglio'», la nuova stagione",p:"Prosa, musica e danza per la stagione 2026|2027."},
+ {c:"Musica",t:"Rassegna della Musica campana",p:"Un viaggio dalla polifonia rinascimentale ai 99 Posse."},
+ {c:"Pubblico",t:"Biglietto a 5 euro per chi studia",p:"Per universitari, allievi delle scuole di teatro, musica, danza e dell'Accademia di Belle Arti."},
+ {c:"Fondazione",t:"Clementina Chieffo è la nuova Presidente",p:"Cambio al vertice della Fondazione Trianon Viviani."},
+ {c:"Stagione",t:"\"Il Trianon fa festa in piazza\"",p:"La presentazione della stagione in piazza Calenda."},
+ {c:"Memoria",t:"Il Trianon Viviani piange Peppino di Capri",p:"Il saluto del teatro a una voce della canzone italiana."}
+];
+
+// ---------- UTIL ----------
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const MESI=["gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","agosto","settembre","ottobre","novembre","dicembre"];
+const GG=["dom","lun","mar","mer","gio","ven","sab"];
+const parse=s=>{const [y,m,d]=s.split("-").map(Number);return new Date(y,m-1,d)};
+const at=(s,h=HOUR)=>{const d=parse(s);const [H,M]=h.split(":");d.setHours(+H,+M);return d};
+const fmtDay=s=>{const d=parse(s);return `${GG[d.getDay()]} ${d.getDate()} ${MESI[d.getMonth()].slice(0,3)}`};
+const range=sh=>{const a=parse(sh.d[0]),b=parse(sh.d[sh.d.length-1]);
+  if(sh.d.length===1)return `${a.getDate()} ${MESI[a.getMonth()]}`;
+  if(a.getMonth()===b.getMonth())return `${a.getDate()} – ${b.getDate()} ${MESI[a.getMonth()]}`;
+  return `${a.getDate()} ${MESI[a.getMonth()].slice(0,3)} – ${b.getDate()} ${MESI[b.getMonth()].slice(0,3)}`};
+const now=()=>new Date();
+const isPast=sh=>at(sh.d[sh.d.length-1],"23:59")<now();
+const store={get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+let favs=new Set(store.get("trianon_favs",[]));
+let regs=store.get("trianon_regs",[]);
+function toast(msg){const t=$("#toast");t.textContent=msg;t.classList.add("show");clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove("show"),3200)}
+
+// ---------- MENU ----------
+$("#burger").onclick=()=>{const m=$("#menu"),o=m.classList.toggle("open");$("#burger").setAttribute("aria-expanded",o)};
+$$("#menu a").forEach(a=>a.onclick=()=>{$("#menu").classList.remove("open");$("#burger").setAttribute("aria-expanded",false)});
+
+// ---------- HERO: prossimo spettacolo + countdown ----------
+function nextPerf(){let best=null;SHOWS.forEach(s=>s.d.forEach(d=>{const t=at(d);if(t>now()&&(!best||t<best.t))best={s,d,t}}));return best}
+function renderNext(){const n=nextPerf(),box=$("#nextCard");
+  if(!n){box.innerHTML=`<div class="tag">Prossimamente</div><h3>Nuovi titoli in arrivo</h3>`;return}
+  box.innerHTML=`<div class="tag">Prossimo in scena · ${GEN[n.s.g][0]}</div><h3>${esc(n.s.t)}</h3><div class="who">${esc(n.s.w)}</div>
+  <div class="count" id="count"></div><div style="font-size:14px;opacity:.85;margin-bottom:16px">${fmtDay(n.d)} · ore ${HOUR}</div>
+  <button class="btn btn-oro" data-show="${n.s.id}">Prenota il tuo posto</button>`;
+  const tick=()=>{let ms=n.t-now();if(ms<0){renderNext();return}
+    const D=Math.floor(ms/864e5),H=Math.floor(ms/36e5)%24,M=Math.floor(ms/6e4)%60,S=Math.floor(ms/1e3)%60;
+    const c=$("#count");if(c)c.innerHTML=[[D,"giorni"],[H,"ore"],[M,"min"],[S,"sec"]].map(([v,l])=>`<div><b>${String(v).padStart(2,"0")}</b><small>${l}</small></div>`).join("")};
+  tick();clearInterval(renderNext._i);renderNext._i=setInterval(tick,1000)}
+
+// strip
+$("#strip").innerHTML=(()=>{const s=SHOWS.filter(x=>!isPast(x)).map(x=>`<span>${esc(x.t)} ✦</span>`).join("");return s+s})();
+
+// ---------- PROGRAMMAZIONE ----------
+let fGen="all",fPast=false,fQ="";
+$("#filters").innerHTML=[["all","Tutti"],...Object.entries(GEN).map(([k,v])=>[k,v[0]])].map(([k,l])=>`<button class="chip" data-g="${k}" aria-pressed="${k==="all"}">${l}</button>`).join("");
+$("#filters").onclick=e=>{const b=e.target.closest("[data-g]");if(!b)return;fGen=b.dataset.g;$$("#filters .chip").forEach(c=>c.setAttribute("aria-pressed",c===b));renderGrid()};
+$("#pastToggle").onclick=e=>{fPast=!fPast;e.currentTarget.setAttribute("aria-pressed",fPast);e.currentTarget.textContent=fPast?"Nascondi passati":"Mostra passati";renderGrid()};
+$("#search").oninput=e=>{fQ=e.target.value.trim().toLowerCase();renderGrid()};
+function card(s){const p=isPast(s),f=favs.has(s.id);
+  return `<article class="card ${p?"past":""}" data-show="${s.id}" tabindex="0" aria-label="${esc(s.t)}, ${range(s)}">
+   <button class="fav" data-fav="${s.id}" aria-pressed="${f}" aria-label="${f?"Rimuovi dai":"Aggiungi ai"} preferiti">${f?"♥":"♡"}</button>
+   <div class="poster ${GEN[s.g][1]}"><span class="pgen">${GEN[s.g][0]}</span><div class="ptitle">${esc(s.t)}</div></div>
+   <div class="card-body"><div class="date">${range(s)}${s.d.length>1?` · ${s.d.length} repliche`:""}</div><h3>${esc(s.t)}</h3><div class="who">${esc(s.w)}</div>
+   <div class="card-foot">${p?`<span class="note" style="margin:0">Concluso</span>`:`<span class="btn btn-primary" style="padding:8px 16px;font-size:13.5px">Biglietti</span>`}<span style="font-size:13px;color:var(--grigio)">Dettagli →</span></div></div></article>`}
+function renderGrid(){const list=SHOWS.filter(s=>(fGen==="all"||s.g===fGen)&&(fPast||!isPast(s))&&(!fQ||(s.t+" "+s.w).toLowerCase().includes(fQ)));
+  $("#grid").innerHTML=list.length?list.map(card).join(""):`<div class="empty">Nessuno spettacolo trovato. Prova un altro filtro.</div>`}
+
+// ---------- PREFERITI ----------
+function toggleFav(id){favs.has(id)?favs.delete(id):favs.add(id);store.set("trianon_favs",[...favs]);
+  toast(favs.has(id)?"Aggiunto a Il mio Trianon ♥":"Rimosso dai preferiti");renderGrid();renderFavs()}
+function renderFavs(){$("#favCount").textContent=favs.size+regs.length;
+  const f=SHOWS.filter(s=>favs.has(s.id));
+  $("#favList").innerHTML=`<div class="eyebrow" style="color:var(--rosso)">Spettacoli salvati</div>`+
+  (f.length?f.map(s=>`<div class="mini"><div><b>${esc(s.t)}</b><small>${range(s)}</small></div><button class="btn btn-primary" style="padding:7px 14px;font-size:13px" data-show="${s.id}">Apri</button></div>`).join(""):`<p class="note">Tocca ♡ su uno spettacolo per salvarlo qui.</p>`)+
+  `<div class="eyebrow" style="color:var(--rosso);margin-top:14px">Iscrizioni a esperienze</div>`+
+  (regs.length?regs.map(r=>`<div class="mini"><div><b>${esc(r.t)}</b><small>${esc(r.n)} · ${r.q} ${r.q>1?"persone":"persona"}</small></div><span>✅</span></div>`).join(""):`<p class="note">Nessuna iscrizione ancora.</p>`)}
+$("#myBtn").onclick=()=>{renderFavs();$("#drawer").classList.add("open")};
+$("#drawerX").onclick=()=>$("#drawer").classList.remove("open");
+
+// ---------- CALENDARIO ----------
+const byDate={};SHOWS.forEach(s=>s.d.forEach(d=>(byDate[d]=byDate[d]||[]).push(s)));
+const months=[[2026,10],[2026,11],[2027,0]];
+let mi=0,sel=null;
+(function initMonth(){const n=now();const i=months.findIndex(([y,m])=>y===n.getFullYear()&&m===n.getMonth());if(i>=0)mi=i})();
+const key=(y,m,d)=>`${y}-${String(m+1).padStart(2,"0")}-${String(d).padStart(2,"0")}`;
+function renderCal(){const [y,m]=months[mi];$("#calTitle").textContent=`${MESI[m]} ${y}`;
+  $("#prevM").disabled=mi===0;$("#nextM").disabled=mi===months.length-1;
+  const first=(new Date(y,m,1).getDay()+6)%7,days=new Date(y,m+1,0).getDate(),t=now(),tk=key(t.getFullYear(),t.getMonth(),t.getDate());
+  let h=["L","M","M","G","V","S","D"].map(d=>`<div class="dow">${d}</div>`).join("");
+  for(let i=0;i<first;i++)h+=`<div class="day blank"></div>`;
+  for(let d=1;d<=days;d++){const k=key(y,m,d),ev=byDate[k];
+    h+=`<button class="day ${ev?"has":""} ${k===tk?"today":""} ${k===sel?"sel":""}" data-day="${k}" ${ev?`aria-label="${d} ${MESI[m]}: ${ev.length} spettacolo"`:"tabindex='-1'"}>${d}${ev?`<span class="dots">${ev.map(()=>"<i></i>").join("")}</span>`:""}</button>`}
+  $("#calGrid").innerHTML=h;
+  if(!sel||!sel.startsWith(`${y}-${String(m+1).padStart(2,"0")}`)){const firstEv=Object.keys(byDate).sort().find(k=>k.startsWith(`${y}-${String(m+1).padStart(2,"0")}`)&&parse(k)>=new Date(t.getFullYear(),t.getMonth(),t.getDate()))||Object.keys(byDate).sort().find(k=>k.startsWith(`${y}-${String(m+1).padStart(2,"0")}`));sel=firstEv||null;if(sel)$$(`[data-day="${sel}"]`).forEach(b=>b.classList.add("sel"))}
+  renderDay()}
+function renderDay(){const box=$("#dayList");
+  if(!sel){box.innerHTML=`<h4>Nessuna data</h4><p>Nessuno spettacolo in questo mese.</p>`;return}
+  const d=parse(sel),ev=byDate[sel]||[];
+  box.innerHTML=`<div class="eyebrow">In scena</div><h4>${["domenica","lunedì","martedì","mercoledì","giovedì","venerdì","sabato"][d.getDay()]} ${d.getDate()} ${MESI[d.getMonth()]}</h4>`+
+  (ev.length?ev.map(s=>`<div class="day-item"><div><b>${esc(s.t)}</b><small>${esc(s.w)} · ore ${HOUR}</small></div><button class="btn btn-oro" style="padding:8px 14px;font-size:13px" data-show="${s.id}" data-date="${sel}">${at(sel)<now()?"Dettagli":"Prenota"}</button></div>`).join(""):`<p style="opacity:.8">Sera di riposo per la sala. Scegli una data evidenziata.</p>`)}
+$("#prevM").onclick=()=>{if(mi>0){mi--;sel=null;renderCal()}};
+$("#nextM").onclick=()=>{if(mi<months.length-1){mi++;sel=null;renderCal()}};
+$("#calGrid").onclick=e=>{const b=e.target.closest(".day.has");if(!b)return;sel=b.dataset.day;$$(".day").forEach(x=>x.classList.toggle("sel",x===b));renderDay()};
+
+// ---------- ESPERIENZE ----------
+function renderExp(){$("#expGrid").innerHTML=EXP.map(x=>{const done=regs.some(r=>r.id===x.id),closed=x.left<=0;
+  return `<div class="exp-card"><div class="ico" aria-hidden="true">${x.ico}</div><h3>${esc(x.t)}</h3><p>${esc(x.p)}</p><div class="meta">${esc(x.m)}</div>
+  ${closed?`<div class="note" style="margin:0">Candidature chiuse</div>`:`<div class="note" style="margin:0">${x.left} posti disponibili su ${x.tot}</div><div class="posti"><i style="width:${100-x.left/x.tot*100}%"></i></div>`}
+  <button class="btn ${done?"btn-line":"btn-primary"}" data-open-exp="${x.id}" ${closed?"disabled style='opacity:.5'":""}>${done?"Iscritto ✓":closed?"Chiuso":"Iscriviti"}</button></div>`}).join("")}
+
+// ---------- NEWS ----------
+let nCat="Tutte";
+const cats=["Tutte",...new Set(NEWS.map(n=>n.c))];
+$("#newsFilters").innerHTML=cats.map(c=>`<button class="chip" data-c="${c}" aria-pressed="${c==="Tutte"}">${c}</button>`).join("");
+$("#newsFilters").onclick=e=>{const b=e.target.closest("[data-c]");if(!b)return;nCat=b.dataset.c;$$("#newsFilters .chip").forEach(c=>c.setAttribute("aria-pressed",c===b));renderNews()};
+function renderNews(){const l=NEWS.filter(n=>nCat==="Tutte"||n.c===nCat);
+  $("#newsGrid").innerHTML=l.map((n,i)=>`<article class="news ${i===0?"feat":""}" tabindex="0" data-news="${NEWS.indexOf(n)}"><div class="cat">${n.c}</div><h3>${esc(n.t)}</h3><p>${esc(n.p)}</p><span style="margin-top:auto;font-weight:600;font-size:14px">Leggi →</span></article>`).join("")}
+
+// ---------- MODAL ----------
+let lastFocus=null;
+function openModal(html){lastFocus=document.activeElement;$("#dialog").innerHTML=`<button class="x" aria-label="Chiudi" data-close>×</button>`+html;$("#modal").classList.add("open");document.body.style.overflow="hidden";setTimeout(()=>{const f=$("#dialog input, #dialog .dates button:not(:disabled), #dialog .btn");f&&f.focus()},50)}
+function closeModal(){$("#modal").classList.remove("open");document.body.style.overflow="";lastFocus&&lastFocus.focus()}
+$("#modal").onclick=e=>{if(e.target.id==="modal"||e.target.closest("[data-close]"))closeModal()};
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeModal();$("#drawer").classList.remove("open")}});
+
+function showModal(id,pre){const s=SHOWS.find(x=>x.id===id);if(!s)return;
+  const up=s.d.filter(d=>at(d)>now());let chosen=pre&&up.includes(pre)?pre:up[0]||null;let q=2,stud=false;
+  openModal(`<div class="poster ${GEN[s.g][1]}"><span class="pgen">${GEN[s.g][0]}</span><div class="ptitle" id="mTitle">${esc(s.t)}</div></div>
+  <div class="d-body"><p style="color:var(--grigio)">${esc(s.w)}</p>
+  <h4 style="margin-top:16px">Scegli la data</h4><div class="dates" id="mDates">${s.d.map(d=>`<button data-d="${d}" ${at(d)<now()?"disabled":""} aria-pressed="${d===chosen}"><b>${fmtDay(d)}</b><br><small>ore ${HOUR}</small></button>`).join("")}</div>
+  ${up.length?`<div style="display:flex;gap:30px;flex-wrap:wrap;align-items:center"><div><h4>Biglietti</h4><div class="qty"><button id="qm" aria-label="Meno">−</button><b id="qv" aria-live="polite">${q}</b><button id="qp" aria-label="Più">+</button></div></div>
+  <label class="check"><input type="checkbox" id="stud" style="accent-color:var(--rosso)"> Studente / allievo · 5€</label></div>`:`<p class="note">Spettacolo concluso.</p>`}
+  <div class="d-actions">${up.length?`<button class="btn btn-primary" id="buy">Vai al pagamento</button>`:""}
+   <button class="btn btn-line" id="ics">📅 Aggiungi al calendario</button><button class="btn btn-line" id="share">↗ Condividi</button>
+   <button class="btn btn-line" id="mfav">${favs.has(s.id)?"♥ Salvato":"♡ Salva"}</button></div>
+  <p class="note">Demo: il pagamento verrebbe gestito dalla biglietteria già in uso dal teatro, integrata nel nuovo sito. Orari indicativi.</p></div>`);
+  const D=$("#mDates");D.onclick=e=>{const b=e.target.closest("[data-d]");if(!b||b.disabled)return;chosen=b.dataset.d;$$("#mDates button").forEach(x=>x.setAttribute("aria-pressed",x===b))};
+  if(up.length){$("#qm").onclick=()=>{q=Math.max(1,q-1);$("#qv").textContent=q};$("#qp").onclick=()=>{q=Math.min(10,q+1);$("#qv").textContent=q};$("#stud").onchange=e=>stud=e.target.checked;
+    $("#buy").onclick=()=>{if(!chosen)return toast("Seleziona una data");
+      $("#dialog .d-body").innerHTML=`<div class="success"><div class="ok">🎟️</div><h3 style="font-family:var(--serif);font-size:34px">Ci vediamo a teatro!</h3><p>${q} ${q>1?"biglietti":"biglietto"} per <b>${esc(s.t)}</b><br>${fmtDay(chosen)} · ore ${HOUR}${stud?` · tariffa studenti 5€ (totale ${q*5}€)`:""}</p><p class="note">Simulazione: nella versione reale riceveresti il biglietto con QR via email e nell'app.</p><div class="d-actions" style="justify-content:center"><button class="btn btn-primary" data-close>Chiudi</button></div></div>`}}
+  $("#ics").onclick=()=>downloadICS(s,chosen||s.d[0]);
+  $("#share").onclick=async()=>{const txt=`${s.t} al Trianon Viviani · ${range(s)}`;try{if(navigator.share){await navigator.share({title:s.t,text:txt,url:location.href});return}}catch(e){return}
+    try{await navigator.clipboard.writeText(txt+" — "+location.href);toast("Link copiato")}catch(e){toast(txt)}};
+  $("#mfav").onclick=e=>{toggleFav(s.id);e.currentTarget.textContent=favs.has(s.id)?"♥ Salvato":"♡ Salva"}}
+
+function downloadICS(s,d){const st=at(d),en=new Date(st.getTime()+2*36e5);
+  const f=x=>x.getFullYear()+String(x.getMonth()+1).padStart(2,"0")+String(x.getDate()).padStart(2,"0")+"T"+String(x.getHours()).padStart(2,"0")+String(x.getMinutes()).padStart(2,"0")+"00";
+  const ics=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Trianon Concept//IT","BEGIN:VEVENT",`UID:${s.id}-${d}@trianon-concept`,`DTSTAMP:${f(new Date())}`,`DTSTART;TZID=Europe/Rome:${f(st)}`,`DTEND;TZID=Europe/Rome:${f(en)}`,`SUMMARY:${s.t} – Teatro Trianon Viviani`,`DESCRIPTION:${s.w}`,"LOCATION:Teatro Trianon Viviani\\, Piazza Vincenzo Calenda 9\\, Napoli","END:VEVENT","END:VCALENDAR"].join("\r\n");
+  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([ics],{type:"text/calendar"}));a.download=`trianon-${s.id}-${d}.ics`;document.body.appendChild(a);a.click();a.remove();toast("Evento scaricato per il calendario")}
+
+function expModal(id){
+  if(id==="studenti"){openModal(`<div class="d-body"><div class="eyebrow" style="color:var(--rosso)">Tariffa 5€</div><h3 id="mTitle" style="font-family:var(--serif);font-size:36px;margin:6px 0 10px">Biglietto studenti</h3>
+   <p>Seleziona uno spettacolo, spunta “Studente / allievo” e mostra il tesserino all'ingresso.</p><div class="d-actions"><a class="btn btn-primary" href="#stagione" data-close>Scegli lo spettacolo</a></div></div>`);return}
+  const x=EXP.find(e=>e.id===id);if(!x)return;
+  openModal(`<div class="d-body light"><div class="eyebrow" style="color:var(--rosso)">Iscrizione · ${esc(x.m)}</div><h3 id="mTitle" style="font-family:var(--serif);font-size:36px;line-height:1.05;margin:6px 0 10px">${esc(x.t)}</h3><p style="color:var(--grigio)">${esc(x.p)}</p>
+  <form id="expForm" novalidate style="margin-top:18px">
+   <div class="row"><div class="field"><label for="eN">Nome e cognome *</label><input id="eN" autocomplete="name"><div class="err"></div></div>
+   <div class="field"><label for="eM">Email *</label><input id="eM" type="email" autocomplete="email"><div class="err"></div></div></div>
+   <div class="row"><div class="field"><label for="eT">Telefono (anche WhatsApp)</label><input id="eT" type="tel" autocomplete="tel"><div class="err"></div></div>
+   <div class="field"><label for="eQ">Partecipanti</label><select id="eQ">${[1,2,3,4].map(n=>`<option>${n}</option>`).join("")}</select></div></div>
+   <label class="consent" style="opacity:1"><input type="checkbox" id="eC" style="accent-color:var(--rosso)"> <span>Acconsento al trattamento dei dati per gestire l'iscrizione.</span></label><div class="err" id="eCErr"></div>
+   <button class="btn btn-primary" type="submit">Conferma iscrizione</button></form></div>`);
+  $("#expForm").onsubmit=e=>{e.preventDefault();let ok=true;
+    const set=(el,msg)=>{el.setAttribute("aria-invalid",!!msg);el.nextElementSibling.textContent=msg||"";if(msg)ok=false};
+    const n=$("#eN"),m=$("#eM"),t=$("#eT");
+    set(n,n.value.trim().length<3?"Inserisci nome e cognome":"");
+    set(m,/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(m.value.trim())?"":"Email non valida");
+    set(t,t.value&&!/^[+\d][\d\s]{6,}$/.test(t.value.trim())?"Numero non valido":"");
+    $("#eCErr").textContent=$("#eC").checked?"":"Serve il consenso per procedere";if(!$("#eC").checked)ok=false;
+    if(!ok)return;const q=+$("#eQ").value;
+    regs=regs.filter(r=>r.id!==x.id);regs.push({id:x.id,t:x.t,n:n.value.trim(),q});store.set("trianon_regs",regs);
+    x.left=Math.max(0,x.left-q);renderExp();renderFavs();
+    $("#dialog .d-body").innerHTML=`<div class="success"><div class="ok">✅</div><h3 style="font-family:var(--serif);font-size:34px">Iscrizione confermata</h3><p>${esc(n.value.trim())}, ti aspettiamo a <b>${esc(x.t)}</b>.<br>Conferma inviata a ${esc(m.value.trim())} (simulazione).</p><div class="d-actions" style="justify-content:center"><button class="btn btn-primary" data-close>Chiudi</button></div></div>`}}
+
+// ---------- NEWSLETTER ----------
+$("#nlForm").onsubmit=e=>{e.preventDefault();const m=$("#nlMail"),ok=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(m.value.trim()),c=$("#nlConsent").checked;
+  m.setAttribute("aria-invalid",!ok);m.nextElementSibling.textContent=ok?"":"Inserisci un'email valida";$("#nlConsentErr").textContent=c?"":"Serve il consenso per iscriverti";
+  if(!ok||!c)return;const ints=$$(".interests input:checked").map(i=>i.parentElement.textContent.trim());
+  const nm=$("#nlName").value.trim();
+  e.target.innerHTML=`<div class="success"><div class="ok">💌</div><h3 style="font-family:var(--serif);font-size:34px;color:var(--oro-2)">Benvenut${nm?"o/a "+esc(nm):"o/a"}!</h3><p>Ti scriveremo di: ${ints.length?esc(ints.join(", ")):"tutto il Trianon"}.</p><p class="note" style="color:var(--carta);opacity:.6">Simulazione: nella versione reale partirebbe l'email di conferma (double opt-in).</p></div>`};
+$("#appBtn").onclick=()=>{location.hash="newsletter";setTimeout(()=>$("#nlMail")&&$("#nlMail").focus(),400);toast("Lascia la tua email: ti avvisiamo al lancio dell'app")};
+
+// ---------- DELEGATION ----------
+document.addEventListener("click",e=>{
+  const f=e.target.closest("[data-fav]");if(f){e.stopPropagation();toggleFav(f.dataset.fav);return}
+  const s=e.target.closest("[data-show]");if(s){$("#drawer").classList.remove("open");showModal(s.dataset.show,s.dataset.date);return}
+  const x=e.target.closest("[data-open-exp]");if(x&&!x.disabled){expModal(x.dataset.openExp);return}
+  const a=e.target.closest("[data-abb]");if(a){toast(`Abbonamento “${a.dataset.abb}”: demo, collegamento al botteghino`);return}
+  const n=e.target.closest("[data-news]");if(n){const it=NEWS[+n.dataset.news];openModal(`<div class="d-body"><div class="eyebrow" style="color:var(--rosso)">${esc(it.c)}</div><h3 id="mTitle" style="font-family:var(--serif);font-size:38px;line-height:1.05;margin:8px 0 12px">${esc(it.t)}</h3><p>${esc(it.p)}</p><p class="note">Demo: qui il testo completo dell'articolo, con foto, video della Web TV e link agli spettacoli collegati.</p></div>`)}
+});
+document.addEventListener("keydown",e=>{if((e.key==="Enter"||e.key===" ")&&e.target.matches(".card,.news")){e.preventDefault();e.target.click()}});
+
+renderNext();renderGrid();renderCal();renderExp();renderNews();renderFavs();
+})();
+</script>
+</body>
+</html>
