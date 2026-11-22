@@ -40,7 +40,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: apk-${{ github.run_number }}
-          name: Trianon concept APK #${{ github.run_number }}
-          body: APK debug del concept. Installazione da file: abilitare "Installa app sconosciute".
+          name: "Trianon concept APK ${{ github.run_number }}"
+          body: "APK debug del concept. Per installarlo abilita 'Installa app sconosciute'."
           files: trianon-concept.apk
           make_latest: true
